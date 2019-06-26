@@ -34,8 +34,8 @@ sudo apt-get install ros-kinetic-rplidar-ros ros-kinetic-astra-* ros-kinetic-twi
 
 	$ Source  /opt/ros/kinetic/setup.bash
 	$ catkin_make
-  $ cd ~/catkin_make/src/ria_e100/e100_base_controller
-  $ sudo dpkg -i ros-kinetic-e100-base_0.1.0-0xenial_amd64.deb
+  	$ cd ~/catkin_make/src/ria_e100/e100_base_controller
+  	$ sudo dpkg -i ros-kinetic-e100-base_0.1.0-0xenial_amd64.deb
 
 - Now open bashrc file by typing `gedit .bashrc` in new terminal and make sure your bashrc is configured at the end of page as shown below
 
