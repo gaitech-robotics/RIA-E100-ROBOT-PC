@@ -19,7 +19,7 @@ Install pre-requisites.
 sudo apt-get install ros-kinetic-rplidar-ros ros-kinetic-astra-* ros-kinetic-twist-mux ros-kinetic-twist-mux-msgs ros-kinetic-teb-local-planner ros-kinetic-hector-mapping ros-kinetic-hector-trajectory-server ros-kinetic-map-server ros-kinetic-amcl ros-kinetic-laser-scan-matcher ros-kinetic-robot-localization ros-kinetic-imu-complementary-filter
 ```
 
-Warning: we are going to remove entire previously installed package which is in catking_ws and will be replacing with latest files. Please backup your files if any programs done by you before doing following step. If not you can create new workspace and continue 
+*Warning*: we are going to remove entire previously installed package which is in catking_ws and will be replacing with latest files. Please backup your files if any programs done by you before doing following step. If not you can create new workspace and continue 
 
 	$ cd ~/catkin_ws
 	$ rm -rf /build
