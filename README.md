@@ -20,14 +20,14 @@ sudo apt-get install ros-kinetic-rplidar-ros ros-kinetic-astra-* ros-kinetic-twi
 ```
 
 *Warning*: we are going to remove entire previously installed package which is in catking_ws and will be replacing with latest files. Please backup your files if any programs done by you before doing following step. If not you can create new workspace and continue 
-
+```
 	$ cd ~/catkin_ws
 	$ rm -rf /build
 	$ rm -rf /devel
 	$ rm -rf /src
   	$ sudo apt-get remove ros-kinetic-e100-base
 	$ mkdir src
-
+```
 - Now paste downloaded file in ~/catkin_ws/src and extract it there
 
 - Compile the latest package
