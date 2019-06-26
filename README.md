@@ -40,12 +40,12 @@ sudo apt-get install ros-kinetic-rplidar-ros ros-kinetic-astra-* ros-kinetic-twi
 - Now open bashrc file by typing `gedit .bashrc` in new terminal and make sure your bashrc is configured at the end of page as shown below
 
 ```
-export ASTRA_RGBD=true
-export RPLIDAR=true
-export SICK=false
-export IMU=true
-export USE_EKF=true
+	export ASTRA_RGBD=true
+	export RPLIDAR=true
+	export SICK=false
+	export IMU=true
+	export USE_EKF=true
 
-export JOY_STICK=true
+	export JOY_STICK=true
 ```
 #### [Tutorials](https://edu.gaitech.hk/ria_e100/demo-apps.html#demo-applications) 
