@@ -1,0 +1,9 @@
+#! /bin/bash
+
+source /home/ria/catkin_ws/devel/setup.bash
+sleep 30
+
+roslaunch ria_bringup minimal.launch
+
+
+

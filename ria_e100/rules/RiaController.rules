@@ -1,0 +1,7 @@
+# set the udev rule , make the device_port be fixed by left and right motors
+#
+KERNEL=="ttyUSB*", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6015", ATTRS{serial}=="DN05IH7F", MODE:="666", SYMLINK+="left_wheel_usb"
+
+KERNEL=="ttyUSB*", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6015", ATTRS{serial}=="DN05IEFU", MODE:="666", SYMLINK+="right_wheel_usb"
+
+

@@ -1,0 +1,21 @@
+topics:
+- name    : joystick
+  topic   : teleop/cmd_vel
+  timeout : 0.5
+  priority: 100
+
+- name    : navigation
+  topic   : move_base/cmd_vel
+  timeout : 0.5
+  priority: 50
+
+- name    : external
+  topic   : cmd_vel
+  timeout : 0.5
+  priority: 10
+
+locks:
+- name    : runstop
+  topic   : e100_runstop
+  timeout : 0.0    
+  priority: 255

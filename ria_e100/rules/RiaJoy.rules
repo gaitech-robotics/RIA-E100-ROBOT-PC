@@ -1,0 +1,4 @@
+# set the udev rule , make the device_port be fixed by rplidar
+#
+KERNEL=="/input/js*", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c21f", MODE:="0777", SYMLINK+="Logitech"
+

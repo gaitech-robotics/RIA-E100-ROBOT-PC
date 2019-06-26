@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- RIA_BASE launch -->
+  <!--arg name="robot_name" default="$(env RIA_BASE)"/--> 
+
+  <node pkg="e100_base" type="robot_node" name="robot_node" output="screen"> 
+    <param name="left_front_port" value="/dev/left_wheel_usb"/>
+    <param name="right_front_port" value="/dev/right_wheel_usb"/>
+    <param name="baud" value="57600"/>
+    <param name="wheel_radius" value="0.1"/>
+    <param name="wheel_gauge" value="0.372"/>
+    <param name="wheel_number" value="2"/>
+    <param name="acceleration_time" value="20"/>
+    <param name="deceleration_time" value="20"/>
+    <param name="maximum_linear" value="0.8"/>
+    <param name="maximum_angular" value="1.0"/>
+    <param name="pose_link" value="odom"/>
+    <param name="twist_link" value="base_link"/>
+    <remap from="/cmd_vel" to="/e100_cmd_vel"/>
+  </node> 
+
+
+  <arg name="efk" default="$(env USE_EKF)"/>
+  <group if="$(eval arg('efk')==true)">
+    <arg name="odom_frame" default="odom"/> 
+    <arg name="base_frame" default="base_link"/>
+    <arg name="odom_topic" default="/odom"/>
+    <arg name="imu_topic" default="/e100_imu"/>
+
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_loc_odom" clear_params="true" output="screen">      
+      <remap from="odometry/filtered" to="odom_ekf" />
+      <param name="frequency" value="30"/>
+      <param name="sensor_timeout" value="0.1"/>
+      <param name="two_d_mode" type="bool" value="true"/>
+      <param name="odom_frame" value="$(arg odom_frame)"/>
+      <param name="base_link_frame" value="$(arg base_frame)"/>
+      <param name="odom0" value="$(arg odom_topic)"/> 
+      <param name="imu0" value="$(arg imu_topic)"/>    
+
+      <rosparam param="odom0_config">[true, true, false,
+                                      false, false, false,
+                                      false, false, false,
+                                      false, false, true,
+                                      false, false, false]</rosparam>
+
+      <rosparam param="imu0_config">[false, false, false,
+                                     false, false, false, 
+                                     false, false, false,
+                                     false, false, true,
+                                     true, false, false]</rosparam>
+
+      <param name="odom0_differential" value="true"/>
+      <param name="imu0_differential" value="false" />
+      <param name="odom0_relative" value="false"/>
+      <param name="imu0_relative" value="false"/>
+      <param name="imu0_remove_gravitational_acceleration" type="bool" value="true"/>
+      <param name="print_diagnostics" value="false"/>
+      <param name="imu0_linear_acceleration_rejection_threshold" value="0.1"/>
+    </node>
+  </group>
+
+  <!-- RIA-E100 Description -->
+  <include file="$(find e100_description)/launch/description.launch"/>
+
+  <!-- Joy stick teleop launch -->
+  <arg name="joystick" default="$(env JOY_STICK)"/>
+  <group if="$(eval arg('joystick')==true)">
+    <include file="$(find e100_teleop)/launch/joy_stick.launch"/>	
+  </group>
+
+  <!-- Twist Mux launch -->
+  <node pkg="twist_mux" type="twist_mux" name="twist_mux">
+    <rosparam file="$(find e100_bringup)/config/twist_mux.yaml" command="load"/>
+    <remap from="/cmd_vel_out" to="/e100_cmd_vel"/>
+  </node>
+
+  <!-- IMU launch -->
+  <arg name="imu" default="$(env IMU)"/>
+  <group if="$(eval arg('imu')==true)">
+    <include file="$(find e100_bringup)/launch/include/pixhawk.launch.xml"/>
+  </group>
+
+  <!-- RIA-E100 sensors launch -->
+
+  <!-- 3D sensor - RGBD Camera - Astra -->
+  <arg name="3D-sensor" default="$(env ASTRA_RGBD)"/>
+  <group if="$(eval arg('3D-sensor') == true )">
+    <include file="$(find e100_bringup)/launch/include/3dsensor_astra.launch.xml"/>
+    <!--include file="$(find e100_bringup)/launch/rgb.launch"/-->
+  </group>
+
+  <!-- 2D Lidar sensor - RPLidar -->
+  <arg name="2d-lidar" default="$(env RPLIDAR)"/>
+  <group if="$(eval arg('2d-lidar')==true)">
+    <include file="$(find e100_bringup)/launch/include/rplidar.launch.xml"/>
+  </group>
+
+   <!-- 2D Lidar sensor - Sick -->
+   <arg name="laser" default="$(env SICK)"/>
+   <group if="$(eval arg('laser')==true )">
+   </group>
+
+</launch>
