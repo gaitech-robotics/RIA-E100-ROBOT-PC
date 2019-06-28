@@ -1,7 +1,7 @@
 # RIA-E100-ROBOT-PC
 This is complete package that resides in robot's PC of RIA E100 ELITE
 
-**UPDATE : 20160626**
+# **UPDATE : 20160626**
 #### Description : Added features 
 - Voltage and Battery capacity readings available at /e100_voltage and /e100_battery topics
 - Stable controller drivers
