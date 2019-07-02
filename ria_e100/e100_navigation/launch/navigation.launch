@@ -2,7 +2,7 @@
 <launch>
 
   <!-- Run Map Server -->
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find e100_navigation)/maps/gaitech_building.yaml">
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find e100_navigation)/maps/gaitech_office.yaml">
     <param name="frame_id" value="map"/>
   </node>
   
