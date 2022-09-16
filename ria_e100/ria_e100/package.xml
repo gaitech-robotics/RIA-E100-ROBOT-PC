@@ -1,17 +1,19 @@
 <?xml version="1.0"?>
 <package>
   <name>ria_e100</name>
-  <version>0.0.0</version>
+  <version>0.1.0</version>
   <description> The packages to run all components of the RIA-E100 </description>
   <maintainer email="viswanath@gaitech.net"> Viswanath </maintainer>
   <maintainer email="shlee@gaitech.kr"> Brighten Lee </maintainer>
-  <license>TODO</license>
+  <maintainer email="chenlinkai@gaitechrobotics.com"> Leo Chen </maintainer>
+  <license>BSD</license>
   <buildtool_depend>catkin</buildtool_depend>
   <run_depend>e100_bringup</run_depend>
   <run_depend>e100_description</run_depend>
   <run_depend>e100_navigation</run_depend>
   <run_depend>e100_sim</run_depend>  
   <run_depend>e100_teleop</run_depend>
+  <run_depend>gaitech_sensors</run_depend>
   <export>
     <metapackage/>
   </export>

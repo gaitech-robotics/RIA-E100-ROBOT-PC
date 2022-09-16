@@ -2,7 +2,7 @@
 <launch>
 
   <!-- RGBD Camera -->
-  <arg name="camera"      default="camera"/>
+  <arg name="camera"      default="front_rgbd_camera"/>
   <arg name="publish_tf"  default="true"/>
 
   <!-- Factory-calibrated depth registration -->
