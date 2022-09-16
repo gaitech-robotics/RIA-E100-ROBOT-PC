@@ -23,7 +23,6 @@ sudo apt install -y python-rosdep python-rosinstall python-rosinstall-generator 
 ```
 	$ mkdir -p ~/catkin_ws/src
 	$ cd ~/catkin_ws/src && catkin_init_workspace
-	$ cd ~/catkin_ws && catkin_make
 ```
 - Now paste downloaded file in ~/catkin_ws/src and extract it there
 ```
@@ -31,8 +30,8 @@ sudo apt install -y python-rosdep python-rosinstall python-rosinstall-generator 
 ```
 - Compile the latest package
 ```
-	$ Source  /opt/ros/melodic/setup.bash
-	$ catkin_make
+	$ source  /opt/ros/melodic/setup.bash
+	$ cd ~/catkin_ws && catkin_make
   	$ cd ~/catkin_make/src/ria_e100/e100_base_controller
   	$ sudo dpkg -i ros-melodic-e100-base_0.1.0-0bionic_amd64.deb
 ```
