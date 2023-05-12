@@ -10,7 +10,7 @@ This is complete package that resides in robot's PC of RIA E100 ELITE
 Prerequisites : Destkop with mouse and keyboard, WiFi Internet
 
 Following steps need to be done in robot pc
-- Download the latest package from [here](https://github.com/gaitech-robotics/RIA-E100-ROBOT-PC/archive/master.zip).
+- Download the latest package from [here](https://github.com/gaitech-robotics/RIA-E100-ROBOT-PC/archive/ros-melodic.zip).
 
 Install pre-requisites.
 
